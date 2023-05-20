@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Dashboard from "./Dashboard";
 
 import "../css/dashboard.css";
 
 const Admin = () => {
-  const [name, setName] = useState();
+  //const [name, setName] = useState();
 
   const token = localStorage.getItem("token");
 
@@ -17,7 +17,6 @@ const Admin = () => {
             token: token,
           },
         })
-        .then(({ data }) => setName(data.nombre))
         .catch((error) => console.error(error));
     }
   }, [token]);
