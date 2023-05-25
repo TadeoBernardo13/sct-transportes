@@ -7,6 +7,8 @@ import Admin from "./components/Admin";
 
 import DashboardView from "./components/DashboardView";
 import PendientesView from "./components/PendientesView";
+import FirmasView from "./components/FirmasView";
+import TerminadosView from "./components/TerminadosView";
 
 import ATAFederalCargaEResiduos from "./pages/altavehiculos/ATAFederalCargaEMRP";
 import ATAFederalCargaGeneral from "./pages/altavehiculos/ATAFederalCargaGeneral";
@@ -77,6 +79,8 @@ const App = () => {
         />
         <Route path="/dashboard" element={<DashboardView />} />
         <Route path="/pendientes" element={<PendientesView />} />
+        <Route path="/firmas" element={<FirmasView />} />
+        <Route path="/terminados" element={<TerminadosView />} />
 
         <Route
           path="/altavehiculoadicionalcargaespecializadaresiduospeligrosos_p"

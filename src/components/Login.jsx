@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./styles.module.scss";
-import stylesContainer from '../App.module.scss'
+import stylesContainer from "../App.module.scss";
 
 const Login = () => {
   const [inputs, setInputs] = useState({ correo: "", contraseña: "" });
@@ -20,9 +20,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (correo === "admin@gmail.com" && contraseña === "admin123") {
-      navigate(`/admin`);
-    } else if (correo !== "" && contraseña !== "") {
+    if (correo !== "" && contraseña !== "") {
       const Usuario = {
         correo,
         contraseña,

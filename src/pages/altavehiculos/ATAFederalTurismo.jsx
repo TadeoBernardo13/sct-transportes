@@ -18,7 +18,7 @@ function AltaTransporteFederalTurismo() {
     nombrePermisionario: "",
     nombreATA:
       "ALTA DE VEHICULOS ADICIONALES AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE TURISMO",
-    estado_P: "EN PROCESO",
+    estado_P: "EN PROCESO DE REVISIÓN",
   });
   const {
     noFolioSiaf,
@@ -78,7 +78,7 @@ function AltaTransporteFederalTurismo() {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="d-flex justify-content-evenly">
               <div>
-                <label htmlFor="numFolio">* No. Folio SIAF:</label>
+                <label htmlFor="numFolio"><span className="asterisco">*</span> No. Folio SIAF:</label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="noFolioSiaf"
@@ -90,7 +90,7 @@ function AltaTransporteFederalTurismo() {
                 />
               </div>
               <div>
-                <label htmlFor="nombrePermisionario">* Permisionario:</label>
+                <label htmlFor="nombrePermisionario"><span className="asterisco">*</span> Permisionario:</label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="nombrePermisionario"

@@ -5,42 +5,42 @@ import axios from "axios";
 import "../css/dashboard.css";
 import styles from "../components/styles.module.scss";
 
-function DashboardView() {
+function FirmasView() {
   const [data, setData] = useState([]);
   const [mensaje, setMensaje] = useState();
 
   axios
-    .get("https://sct-transportes.herokuapp.com/altavehiculosadicionales")
+    .get("https://sct-transportes.herokuapp.com/firmas/firmas")
     .then((res) => setData(res.data))
     .catch((err) => console.log(err));
 
   const deletePost = (id, e) => {
     e.preventDefault();
     axios
-      .delete(`https://sct-transportes.herokuapp.com/altavehiculosadicionales/${id}`)
+      .delete(`https://sct-transportes.herokuapp.com/firmas/firmas/${id}`)
       .then((res) => console.log("Deleted!", res))
       .catch((err) => console.log(err));
   };
 
   const testOnchange = async (
     id,
-    noFolioSiaf,
-    nombrePermisionario,
-    nombreATA,
-    fechaRecepcion,
+    noFolioSiaf_F,
+    nombrePermisionario_F,
+    nombreATA_F,
+    fechaRecepcion_F,
     e
   ) => {
     e.preventDefault();
     const inputs = {
-      noFolioSiaf_F: noFolioSiaf,
-      fechaRecepcion_F: fechaRecepcion,
-      nombrePermisionario_F: nombrePermisionario,
-      nombreATA_F: nombreATA,
-      estado_F: "EN PROCESO DE FIRMA",
+      noFolioSiaf_T: noFolioSiaf_F,
+      fechaRecepcion_T: fechaRecepcion_F,
+      nombrePermisionario_T: nombrePermisionario_F,
+      nombreATA_T: nombreATA_F,
+      estado_T: "TERMINADO",
     };
 
     await axios
-      .post("https://sct-transportes.herokuapp.com/firmas/firmas", inputs)
+      .post("https://sct-transportes.herokuapp.com/terminados/terminados", inputs)
       .then((res) => {
         const { data } = res;
         setMensaje(data.mensaje);
@@ -53,7 +53,7 @@ function DashboardView() {
       });
 
     await axios
-      .delete(`https://sct-transportes.herokuapp.com/altavehiculosadicionales/${id}`)
+      .delete(`https://sct-transportes.herokuapp.com/firmas/firmas/${id}`)
       .then((res) => console.log("Deleted!", res))
       .catch((err) => console.log(err));
   };
@@ -78,12 +78,12 @@ function DashboardView() {
                 return (
                   <tr>
                     <th key={i} scope="row">
-                      {d.noFolioSiaf}
+                      {d.noFolioSiaf_F}
                     </th>
-                    <td>{d.nombrePermisionario}</td>
-                    <td>{d.nombreATA}</td>
-                    <td>{d.fechaRecepcion}</td>
-                    <td>{d.estado_P}</td>
+                    <td>{d.nombrePermisionario_F}</td>
+                    <td>{d.nombreATA_F}</td>
+                    <td>{d.fechaRecepcion_F}</td>
+                    <td>{d.estado_F}</td>
                     <td>
                       <button
                         onClick={(e) => deletePost(d._id, e)}
@@ -95,16 +95,16 @@ function DashboardView() {
                         onClick={(e) =>
                           testOnchange(
                             d._id,
-                            d.noFolioSiaf,
-                            d.nombrePermisionario,
-                            d.nombreATA,
-                            d.fechaRecepcion,
+                            d.noFolioSiaf_F,
+                            d.nombrePermisionario_F,
+                            d.nombreATA_F,
+                            d.fechaRecepcion_F,
                             e
                           )
                         }
                         className="btn btn-success"
                       >
-                        Cambiar a "En Proceso de firma"
+                        Cambiar a "Terminado"
                       </button>
                     </td>
                   </tr>
@@ -119,4 +119,4 @@ function DashboardView() {
   );
 }
 
-export default DashboardView;
+export default FirmasView;

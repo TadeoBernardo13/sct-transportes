@@ -18,7 +18,7 @@ function AltaTransportePrivadoPersonas() {
     nombrePermisionario: "",
     nombreATA:
       "ALTA DE VEHICULOS ADICIONALES AL PERMISO DE TRANSPORTE PRIVADO DE PERSONAS",
-    estado_P: "EN PROCESO",
+    estado_P: "EN PROCESO DE REVISIÓN",
   });
   const {
     noFolioSiaf,
@@ -44,7 +44,10 @@ function AltaTransportePrivadoPersonas() {
       };
 
       await axios
-        .post("https://sct-transportes.herokuapp.com/altavehiculosadicionales", ATA)
+        .post(
+          "https://sct-transportes.herokuapp.com/altavehiculosadicionales",
+          ATA
+        )
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);
@@ -78,7 +81,7 @@ function AltaTransportePrivadoPersonas() {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="d-flex justify-content-evenly">
               <div>
-                <label htmlFor="numFolio">* No. Folio SIAF:</label>
+                <label htmlFor="numFolio"><span className="asterisco">*</span> No. Folio SIAF:</label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="noFolioSiaf"
@@ -90,7 +93,7 @@ function AltaTransportePrivadoPersonas() {
                 />
               </div>
               <div>
-                <label htmlFor="nombrePermisionario">* Permisionario:</label>
+                <label htmlFor="nombrePermisionario"><span className="asterisco">*</span> Permisionario:</label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="nombrePermisionario"

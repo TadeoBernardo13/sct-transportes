@@ -1,7 +1,25 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import "../css/dashboard.css";
 
 function Dashboard() {
+  const [name, setName] = useState();
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      axios
+        .get(`https://sct-transportes.herokuapp.com/user`, {
+          headers: {
+            token: token,
+          },
+        })
+        .then(({ data }) => setName(data.nombre))
+        .catch((error) => console.error(error));
+    }
+  }, [token]);
   return (
     <div className="main-container d-flex">
       <div className="sidebar" id="side_nav">
@@ -12,19 +30,18 @@ function Dashboard() {
             </span>{" "}
             <span className="text-white">Control de permisos</span>
           </h1>
-          <button className="btn d-md-none d-block close-btn px-1 py-0 text-white">
-            <i class="bi bi-list"></i>
-          </button>
+          <h3 className="text-white">{name}</h3>
         </div>
         <ul className="list-unstyled px-2">
+          <h5 className="text-white mt-2">
+            AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL
+          </h5>
           <li className="p-2">
             <NavLink
               className="text-decoration-none nav__link"
               to="/altavehiculoadicionalcargaespecializadaresiduospeligrosos"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE
-              CARGA ESPECIALIZADA PARA EL TRANSPORTE DE MATERIALES Y RESIDUOS
-              PELIGROSOS
+              CETMRP
             </NavLink>
           </li>
           <li className="p-2">
@@ -32,7 +49,6 @@ function Dashboard() {
               to="/altavehiculoadicionalcargageneral"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE
               CARGA GENERAL
             </NavLink>
           </li>
@@ -41,7 +57,6 @@ function Dashboard() {
               to="/altavehiculoadicionalfederalpasaje"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE
               PASAJE
             </NavLink>
           </li>
@@ -50,18 +65,19 @@ function Dashboard() {
               to="/altavehiculoadicionalfederalturismo"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE
               TURISMO
             </NavLink>
           </li>
+
+          <h5 className="text-white mt-4">
+            AVA. AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO
+          </h5>
           <li className="p-2">
             <NavLink
               to="/altavehiculoadicionalprivadocargaespecilizadaresiduosremanentesdesechospeligrosos"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO DE CARGA
-              ESPECIALIZADA DE MATERIALES, RESIDUOS, REMANENTES Y DESECHOS
-              PELIGROSOS
+              CEMRRDP
             </NavLink>
           </li>
           <li className="p-2">
@@ -69,8 +85,7 @@ function Dashboard() {
               to="/altavehiculoadicionalprivadocargageneral"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO DE DE CARGA
-              GENERAL
+              CARGA GENERAL
             </NavLink>
           </li>
           <li className="p-2">
@@ -78,67 +93,34 @@ function Dashboard() {
               to="/altavehiculoadicionalprivadopersonas"
               className="text-decoration-none nav__link"
             >
-              AVA. AL PERMISO DE TRANSPORTE PRIVADO DE PERSONAS
+              PERSONAS
             </NavLink>
           </li>
-          {/* <li className="p-2">
-            <NavLink
-              to="/expedicionpermisofederalpasaje"
-              className="text-decoration-none nav__link"
-            >
-              EPS. DE AUTOTRANSPORTE FEDERAL DE PASAJE
-            </NavLink>
-          </li>
+
+          <h5 className="text-white mt-4">VER REPORTES</h5>
           <li className="p-2">
             <NavLink
-              to="/expedicionpermisofederalturismo"
+              to="/terminados"
               className="text-decoration-none nav__link"
             >
-              EPS DE AUTOTRANSPORTE FEDERAL DE TURISMO
+              Ver Reportes en Terminados
             </NavLink>
           </li>
           <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
+            <NavLink to="/firmas" className="text-decoration-none nav__link">
+              Ver Reportes en firma
             </NavLink>
           </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li>
-          <li className="p-2">
-            <NavLink to="#" className="text-decoration-none nav__link">
-              Icon Dashboard
-            </NavLink>
-          </li> */}
           <li className="p-2">
             <NavLink to="/dashboard" className="text-decoration-none nav__link">
-              Ver Reportes en proceso
+              Ver Reportes en revisión
             </NavLink>
           </li>
           <li className="p-2">
-            <NavLink to="/pendientes" className="text-decoration-none nav__link">
+            <NavLink
+              to="/pendientes"
+              className="text-decoration-none nav__link"
+            >
               Ver Reportes pendientes
             </NavLink>
           </li>

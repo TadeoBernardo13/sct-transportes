@@ -21,6 +21,12 @@ hr.h-color{
     background: #eee;
 }
 
+.sidebar ul .nav__link:hover {
+    background: #eee;
+    color: #000;
+    border-radius: 8px;
+}
+
 .sidebar ul .nav__link.active {
     background: #eee;
     color: #000;
@@ -31,5 +37,10 @@ hr.h-color{
 }
 
 .sidebar li .nav__link{
-    color: #fff;
+    color: #ddd;
+}
+
+.asterisco {
+    color: red;
+    font-size: 2rem;
 }

@@ -51,7 +51,10 @@ function ATAPrivadoPersonasP() {
       };
 
       await axios
-        .post("https://sct-transportes.herokuapp.com/pendientes/pendientes", Pendiente)
+        .post(
+          "https://sct-transportes.herokuapp.com/pendientes/pendientes",
+          Pendiente
+        )
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);
@@ -88,7 +91,9 @@ function ATAPrivadoPersonasP() {
               <div className="mb-3">
                 <div className="d-flex justify-content-evenly">
                   <div>
-                    <label htmlFor="noFolioSiaf_P">* No. Folio SIAF:</label>
+                    <label htmlFor="noFolioSiaf_P">
+                      <span className="asterisco">*</span> No. Folio SIAF:
+                    </label>
                     <input
                       onChange={(e) => HandleChange_P(e)}
                       name="noFolioSiaf_P"
@@ -101,7 +106,7 @@ function ATAPrivadoPersonasP() {
                   </div>
                   <div>
                     <label htmlFor="nombrePermisionario_P">
-                      * Permisionario:
+                      <span className="asterisco">*</span> Permisionario:
                     </label>
                     <input
                       onChange={(e) => HandleChange_P(e)}
@@ -115,7 +120,8 @@ function ATAPrivadoPersonasP() {
                   </div>
                 </div>
                 <label htmlFor="justificacion_P" className="form-label">
-                  * Escriba una justificacion o documentacion faltante
+                  <span className="asterisco">*</span> Escriba una justificacion
+                  o documentacion faltante
                 </label>
                 <textarea
                   onChange={(e) => HandleChange_P(e)}
@@ -127,7 +133,9 @@ function ATAPrivadoPersonasP() {
                   as="textarea"
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-info">Mandar a pendientes</button>
+              <button type="submit" className="btn btn-info">
+                Mandar a pendientes
+              </button>
               {mensaje && <div className={styles.toast}>{mensaje}</div>}
             </div>
           </form>
