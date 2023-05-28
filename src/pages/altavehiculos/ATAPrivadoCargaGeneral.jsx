@@ -14,7 +14,7 @@ function ATAPrivadoCargaGeneral() {
 
   const [inputs, setInputs] = useState({
     noFolioSiaf: "",
-    fechaRecepcion: "",
+    fechaRecepcion: Date(),
     nombrePermisionario: "",
     nombreATA:
       "ALTA DE VEHICULOS ADICIONALES AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO DE DE CARGA GENERAL",

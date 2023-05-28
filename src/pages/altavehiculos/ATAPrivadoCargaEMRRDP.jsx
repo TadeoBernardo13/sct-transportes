@@ -14,12 +14,13 @@ function ATAPrivadoCargaERRDP() {
 
   const [inputs, setInputs] = useState({
     noFolioSiaf: "",
-    fechaRecepcion: "",
+    fechaRecepcion: Date(),
     nombrePermisionario: "",
     nombreATA:
       "ALTA DE VEHICULOS ADICIONALES AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO DE CARGA ESPECIALIZADA DE MATERIALES, RESIDUOS, REMANENTES Y DESECHOS PELIGROSOS",
     estado_P: "EN PROCESO DE REVISIÓN",
   });
+
   const {
     noFolioSiaf,
     fechaRecepcion,
@@ -44,7 +45,10 @@ function ATAPrivadoCargaERRDP() {
       };
 
       await axios
-        .post("https://sct-transportes.herokuapp.com/altavehiculosadicionales", ATA)
+        .post(
+          "https://sct-transportes.herokuapp.com/altavehiculosadicionales",
+          ATA
+        )
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);
@@ -66,6 +70,7 @@ function ATAPrivadoCargaERRDP() {
       alert("Favor de llenar todos lo campos");
     }
   };
+
   return (
     <>
       <div className="d-flex">
@@ -79,7 +84,9 @@ function ATAPrivadoCargaERRDP() {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="d-flex justify-content-evenly">
               <div>
-                <label htmlFor="numFolio"><span className="asterisco">*</span> No. Folio SIAF:</label>
+                <label htmlFor="numFolio">
+                  <span className="asterisco">*</span> No. Folio SIAF:
+                </label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="noFolioSiaf"
@@ -91,7 +98,9 @@ function ATAPrivadoCargaERRDP() {
                 />
               </div>
               <div>
-                <label htmlFor="nombrePermisionario"><span className="asterisco">*</span> Permisionario:</label>
+                <label htmlFor="nombrePermisionario">
+                  <span className="asterisco">*</span> Permisionario:
+                </label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="nombrePermisionario"

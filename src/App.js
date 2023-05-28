@@ -18,9 +18,6 @@ import ATAPrivadoCargaERRDP from "./pages/altavehiculos/ATAPrivadoCargaEMRRDP";
 import ATAPrivadoCargaGeneral from "./pages/altavehiculos/ATAPrivadoCargaGeneral";
 import AltaTransportePrivadoPersonas from "./pages/altavehiculos/ATAPrivadoPersonas";
 
-import EPSFederalPasaje from "./pages/altapermisos/EPSFederalPasaje";
-import EPSFederalTurismo from "./pages/altapermisos/EPSFederalTurismo";
-
 import ATAFederalCargaEResiduosP from "./pages/altavehiculos/ATAFederalCargaEMRP_P";
 import ATAFederalCargaGeneralP from "./pages/altavehiculos/ATAFederalCargaGeneral_P";
 import ATAFederalPasajeP from "./pages/altavehiculos/ATAFederalPasaje_P";
@@ -69,14 +66,6 @@ const App = () => {
           element={<AltaTransportePrivadoPersonas />}
         />
 
-        <Route
-          path="/expedicionpermisofederalpasaje"
-          element={<EPSFederalPasaje />}
-        />
-        <Route
-          path="/expedicionpermisofederalturismo"
-          element={<EPSFederalTurismo />}
-        />
         <Route path="/dashboard" element={<DashboardView />} />
         <Route path="/pendientes" element={<PendientesView />} />
         <Route path="/firmas" element={<FirmasView />} />

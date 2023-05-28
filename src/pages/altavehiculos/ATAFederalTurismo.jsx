@@ -14,7 +14,7 @@ function AltaTransporteFederalTurismo() {
 
   const [inputs, setInputs] = useState({
     noFolioSiaf: "",
-    fechaRecepcion: "",
+    fechaRecepcion: Date(),
     nombrePermisionario: "",
     nombreATA:
       "ALTA DE VEHICULOS ADICIONALES AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL DE TURISMO",

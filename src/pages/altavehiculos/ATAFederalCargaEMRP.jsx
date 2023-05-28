@@ -85,7 +85,9 @@ function ATAFederalCargaEResiduos() {
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="d-flex justify-content-evenly">
               <div>
-                <label htmlFor="numFolio"><span className="asterisco">*</span> No. Folio SIAF:</label>
+                <label htmlFor="numFolio">
+                  <span className="asterisco">*</span> No. Folio SIAF:
+                </label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="noFolioSiaf"
@@ -97,7 +99,9 @@ function ATAFederalCargaEResiduos() {
                 />
               </div>
               <div>
-                <label htmlFor="nombrePermisionario"><span className="asterisco">*</span> Permisionario:</label>
+                <label htmlFor="nombrePermisionario">
+                  <span className="asterisco">*</span> Permisionario:
+                </label>
                 <input
                   onChange={(e) => HandleChange(e)}
                   name="nombrePermisionario"
