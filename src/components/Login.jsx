@@ -46,6 +46,8 @@ const Login = () => {
         });
       setInputs({ correo: "", contraseña: "" });
       setLoading(false);
+    } else {
+      alert("Favor de llenar todos los campos");
     }
   };
 

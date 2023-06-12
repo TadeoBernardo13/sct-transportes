@@ -38,7 +38,7 @@ function PendientesView() {
       fechaRecepcion: fechaRecepcion_P,
       nombrePermisionario: nombrePermisionario_P,
       nombreATA: nombreATA_P,
-      estado_P: "EN PROCESO",
+      estado_P: "EN PROCESO DE REVISION",
     };
 
     await axios

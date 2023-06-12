@@ -33,6 +33,7 @@ function Dashboard() {
           <h3 className="text-white">{name}</h3>
         </div>
         <ul className="list-unstyled px-2">
+          {/* Permisos alta de vehiculos adicionales */}
           <h5 className="text-white mt-2">
             AVA. AL PERMISO PARA EL SERVICIO DE AUTOTRANSPORTE FEDERAL
           </h5>
@@ -69,6 +70,7 @@ function Dashboard() {
             </NavLink>
           </li>
 
+          {/* Permisos alta de vehiculos adicionales */}
           <h5 className="text-white mt-4">
             AVA. AL PERMISO PARA EL SERVICIO DE TRANSPORTE PRIVADO
           </h5>
@@ -91,6 +93,88 @@ function Dashboard() {
           <li className="p-2">
             <NavLink
               to="/altavehiculoadicionalprivadopersonas"
+              className="text-decoration-none nav__link"
+            >
+              PERSONAS
+            </NavLink>
+          </li>
+
+          {/* Alta de Expedicion de Permisos */}
+          <h5 className="text-white mt-4">
+            EXPEDICION DE PERMISO PARA EL SERVICIO FEDERAL
+          </h5>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldepasaje"
+              className="text-decoration-none nav__link"
+            >
+              PASAJE
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldeturismo"
+              className="text-decoration-none nav__link"
+            >
+              TURISMO
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldecargaespecializadaenfranjafronteriza"
+              className="text-decoration-none nav__link"
+            >
+              CETMRP FRONTERIZOS
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldecargaespecializadaenmatpeligrosos"
+              className="text-decoration-none nav__link"
+            >
+              CETMRP
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldecargageneral"
+              className="text-decoration-none nav__link"
+            >
+              CARGA GENERAL
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosfederaldecargageneralfranjafronteriza"
+              className="text-decoration-none nav__link"
+            >
+              CARGA GENERAL FRANJA FRONTERIZA
+            </NavLink>
+          </li>
+
+          {/* Alta de Expedicion de Permisos */}
+          <h5 className="text-white mt-4">
+            EXPEDICION DE PERMISO PARA EL SERVICIO PRIVADO
+          </h5>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosprivadosdecargageneral"
+              className="text-decoration-none nav__link"
+            >
+              CARGA GENERAL
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosprivadosdecargaespecializadadresiduospeligrosos"
+              className="text-decoration-none nav__link"
+            >
+              CEMRRDP
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/expedidiondepermisosprivadosdepersonas"
               className="text-decoration-none nav__link"
             >
               PERSONAS
